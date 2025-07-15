@@ -1,0 +1,87 @@
+<% layout("layouts/boilerplate") -%>
+  
+<!-- Filter Bar -->
+<div id="filters" class="d-flex overflow-auto px-3 py-2 border-bottom bg-white">
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-fire mb-1"></i>
+    <small>Trending</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-umbrella-beach mb-1"></i>
+    <small>Beachfront</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-tree mb-1"></i>
+    <small>Cabins</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-mountain-sun mb-1"></i>
+    <small>Mountains</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-leaf mb-1"></i>
+    <small>Countryside</small>
+  </div>
+  <!-- New Filters -->
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-campground mb-1"></i>
+    <small>Campaign</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-tractor mb-1"></i>
+    <small>Farms</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-water-ladder mb-1"></i>
+    <small>Amazing Pools</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-chess-rook mb-1"></i>
+    <small>Castle</small>
+  </div>
+  <div class="filter me-3 d-flex flex-column align-items-center text-center">
+    <i class="fa-solid fa-bed mb-1"></i>
+    <small>Rooms</small>
+  </div>
+  <div class="container mt-3 d-flex justify-content-end align-items-center">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="gstToggle">
+      <label class="form-check-label" for="gstToggle">Include GST (18%)</label>
+    </div>
+  </div>
+</div>
+
+<!-- Listings Section -->
+<div class="container">
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3">
+    <% for (let listing of allListings) { %>
+      <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none text-dark">
+        <div class="col mb-4">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing_image" style="height: 200px; object-fit: cover;">
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <h5 class="card-title mb-1"><%= listing.title %></h5>
+              <p class="card-text text-muted">
+                &#8377; <span class="base-price"><%= listing.price %></span>
+                <span class="gst-price d-none"><%= (listing.price * 1.18).toFixed(0) %></span> /Night
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% } %>
+  </div>
+</div>
+
+<script>
+const gstToggle = document.getElementById('gstToggle');
+gstToggle.addEventListener('change', () => {
+  document.querySelectorAll('.base-price').forEach(el => {
+    el.style.display = gstToggle.checked ? 'none' : 'inline';
+  });
+  document.querySelectorAll('.gst-price').forEach(el => {
+    el.classList.toggle('d-none', !gstToggle.checked);
+  });
+});
+</script>

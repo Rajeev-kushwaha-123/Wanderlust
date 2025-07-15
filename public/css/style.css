@@ -1,0 +1,105 @@
+.navbar-brand {
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.navbar {
+  padding: 0.8rem 1.2rem;
+}
+
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+/* Footer base styles */
+footer {
+    font-size: 0.9rem;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+/* Footer links - simple underline */
+footer a {
+    color: #6c757d;
+    margin-right: 12px;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+footer a:hover {
+    color: #dc3545; /* Optional: red on hover */
+    text-decoration: underline;
+}
+
+/* Social icons sizing and spacing */
+footer i.fab, 
+footer i.fa-solid, 
+footer img {
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+footer img {
+    margin-left: 5px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+/* Responsive footer */
+@media (max-width: 767px) {
+    footer .text-md-end {
+        text-align: left !important;
+        margin-top: 10px;
+    }
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.card-img-top {
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/*card effect*/
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+
+.card-title {
+    font-size: 1.8rem;
+}
+
+/*index.ejs*/
+
+#filters {
+    white-space: nowrap;
+    gap: 10px;
+  }
+  .filter {
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    min-width: 60px;
+  }
+  .filter:hover {
+    color: #000;
+    font-weight: 500;
+  }

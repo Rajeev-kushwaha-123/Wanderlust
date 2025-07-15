@@ -1,0 +1,55 @@
+<% layout("layouts/boilerplate") -%>
+
+<div class="container my-5">
+  <h3 class="mb-4 fw-bold">Create a New Listing</h3>
+
+  <form method="POST" action="/listings" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+    <div class="col-md-6">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" name="title" id="title" class="form-control" required>
+      <div class="invalid-feedback">Please provide a title.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="price" class="form-label">Price (₹/Night)</label>
+      <input type="number" name="price" id="price" class="form-control" required>
+      <div class="invalid-feedback">Please provide a price.</div>
+    </div>
+
+    <!-- Image Upload -->
+    <div class="col-12">
+      <label for="imageFile" class="form-label">Upload Image</label>
+      <input type="file" name="imageFile" id="imageFile" class="form-control" accept="image/*" required>
+      <div class="invalid-feedback">Please upload an image.</div>
+    </div>
+
+    <!-- Image Preview -->
+    <div class="col-12">
+      <img id="previewImage" src="#" alt="Image Preview" class="img-fluid mt-3" style="display: none; max-height: 300px;" />
+    </div>
+
+    <div class="col-12">
+      <label for="description" class="form-label">Description</label>
+      <textarea name="description" id="description" class="form-control" rows="3" required></textarea>
+      <div class="invalid-feedback">Please provide a description.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" name="location" id="location" class="form-control" required>
+      <div class="invalid-feedback">Please provide a location.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="country" class="form-label">Country</label>
+      <input type="text" name="country" id="country" class="form-control" required>
+      <div class="invalid-feedback">Please provide a country.</div>
+    </div>
+
+    <div class="col-12 mt-3">
+      <button type="submit" class="btn btn-primary">Add Listing</button>
+    </div>
+  </form>
+</div>
+
+
